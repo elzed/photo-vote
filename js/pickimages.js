@@ -1,4 +1,3 @@
-// Setup random images
 // Object constructor for product images
 var imageObjectConstructor = function(name, source) {
   this.imageSource = source;
@@ -10,20 +9,20 @@ var imageObjectConstructor = function(name, source) {
 
 // Array of product image objects
 var possibleImages = [
-  new imageObjectConstructor("R2D2 Bag", "img/bag.jpg"),
-  new imageObjectConstructor("Banana Slicer", "img/banana.jpg"),
-  new imageObjectConstructor("Yelow Boots", "img/boots.jpg"),
-  new imageObjectConstructor("Red Chair", "img/chair.jpg"),
+  new imageObjectConstructor("R2D2", "img/bag.jpg"),
+  new imageObjectConstructor("Banana", "img/banana.jpg"),
+  new imageObjectConstructor("Boots", "img/boots.jpg"),
+  new imageObjectConstructor("Chair", "img/chair.jpg"),
   new imageObjectConstructor("Cthulhu", "img/cthulhu.jpg"),
-  new imageObjectConstructor("Dragon Meat", "img/dragon.jpg"),
-  new imageObjectConstructor("Cutlery Pen", "img/pen.jpg"),
-  new imageObjectConstructor("Pizza Scissors", "img/scissors.jpg"),
-  new imageObjectConstructor("Shark Sleeping Bag", "img/shark.jpg"),
-  new imageObjectConstructor("Baby Sweeping Pajamas", "img/sweep.jpg"),
-  new imageObjectConstructor("Unicorn Meat", "img/unicorn.jpg"),
-  new imageObjectConstructor("Tentacle USB", "img/usb.jpg"),
-  new imageObjectConstructor("Watering Can of Futility", "img/water_can.jpg"),
-  new imageObjectConstructor("Egg Shaped Wine Glass", "img/wine_glass.jpg"),
+  new imageObjectConstructor("Dragon", "img/dragon.jpg"),
+  new imageObjectConstructor("Utensils", "img/pen.jpg"),
+  new imageObjectConstructor("Scissors", "img/scissors.jpg"),
+  new imageObjectConstructor("Shark", "img/shark.jpg"),
+  new imageObjectConstructor("Baby", "img/sweep.jpg"),
+  new imageObjectConstructor("Unicorn", "img/unicorn.jpg"),
+  new imageObjectConstructor("Tentacle", "img/usb.jpg"),
+  new imageObjectConstructor("Watering", "img/water_can.jpg"),
+  new imageObjectConstructor("Wine", "img/wine_glass.jpg"),
 ];
 
 // Event listener to call randomImageSelector() on window load event: function selects three images randomly to display
@@ -32,7 +31,9 @@ window.addEventListener("load", randomImageSelector, false);
 var imagePanel = document.getElementById("images-holder");
 
 // Event listener to call recordClick() on click event: function records image that is voted on by click
-imagePanel.addEventListener("click", recordClick, false);
+// if (clickCounter < 15) {
+  imagePanel.addEventListener("click", recordClick, false);
+// }
 
 // Event listener to call randomImageSelector() on click event: function refreshes the selection of images
 imagePanel.addEventListener("click", randomImageSelector, false);
@@ -74,8 +75,21 @@ function recordClick(event) {
       console.log("    Clicked Item: "+possibleImages[index].name);
       console.log(possibleImages[index].forVotes);
       }
+    // if (clickCounter === 15) {
+    //   console.log("Click counter: " + clickCounter);
+    //   break;
+    //   }
     }
 
+
 if (clickCounter >= 15) {
-  chart.render();
+
 }
+
+
+
+
+// if (clickCounter >= 15) {
+//   chart.render();
+// }
+};

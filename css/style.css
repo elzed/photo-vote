@@ -1,0 +1,24 @@
+
+
+
+
+body {
+   font-family: Helvetica, sans-serif;
+   background-color: #e3e3e3;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+
+div#images-holder {
+  margin: 4em 10%;
+}
+
+
+img {
+  width: 25%;
+  margin: 0 2em;
+  float: left;
+}
