@@ -39,7 +39,6 @@ var imagePanel = document.getElementById("images-holder");
 imagePanel.addEventListener("click", randomImageSelector, false);
 
 var chosenImages = [];
-
 var clickCounter = 0;
 
 // Function randomly selects three images to display
@@ -82,14 +81,8 @@ function recordClick(event) {
     }
 
 
+
 if (clickCounter >= 15) {
-
+  chart.render();
 }
-
-
-
-
-// if (clickCounter >= 15) {
-//   chart.render();
-// }
 };
