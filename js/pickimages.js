@@ -31,9 +31,7 @@ window.addEventListener("load", randomImageSelector, false);
 var imagePanel = document.getElementById("images-holder");
 
 // Event listener to call recordClick() on click event: function records image that is voted on by click
-// if (clickCounter < 15) {
-  imagePanel.addEventListener("click", recordClick, false);
-// }
+imagePanel.addEventListener("click", recordClick, false);
 
 // Event listener to call randomImageSelector() on click event: function refreshes the selection of images
 imagePanel.addEventListener("click", randomImageSelector, false);
@@ -43,12 +41,12 @@ var clickCounter = 0;
 
 // Function randomly selects three images to display
 function randomImageSelector() {
-  chosenImages = [];
+  chosenImages = []; // empty this so that we can track 3 new images
   for (var imageId = 1; imageId <= 3; imageId++) {
     do {
       var index = Math.floor(Math.random() * 14);
-    } while (chosenImages.indexOf(index) >= 0);
-    var source = possibleImages[index].imageSource;
+    } while (chosenImages.indexOf(index) >= 0);   // keep trying until it's unique
+    var source = possibleImages[index].imageSource; // get the source for the image
     document.getElementById("image"+imageId).src = source;
     chosenImages.push(index);
   }
@@ -56,7 +54,7 @@ function randomImageSelector() {
   clickDisplay.innerHTML = "";
   var clickDisplayNode = document.createTextNode("You have made " + clickCounter + " picks of 15.");
   clickDisplay.appendChild(clickDisplayNode);
-};
+}
 
 // Function records image that is clicked on by user and updates vote count for image object
 function recordClick(event) {
@@ -73,16 +71,9 @@ function recordClick(event) {
       possibleImages[index].y++;
       console.log("    Clicked Item: "+possibleImages[index].name);
       console.log(possibleImages[index].forVotes);
-      }
-    // if (clickCounter === 15) {
-    //   console.log("Click counter: " + clickCounter);
-    //   break;
-    //   }
     }
-
-
-
-if (clickCounter >= 15) {
-  chart.render();
-}
+  }
+  if (clickCounter >= 15) {
+    chart.render();
+  }
 };
