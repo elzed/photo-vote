@@ -33,13 +33,24 @@ div#chart-container {
 }
 
 
+
 /* css below for transitions */
 
-img {
-  animation: fadein 2s;
+/*.image-div {
+  opacity: 1;
+  transition: opacity .25s;
 }
 
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+.image-div:hover {
+   opacity: 0.5;
+}*/
+
+#images-holder:hover > .image-div {
+  opacity: 0.25;
+  transition: 1s;
+}
+
+#images-holder:hover > .image-div:hover {
+  opacity: 1.0;
+  transition: 1s;
 }

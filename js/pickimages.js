@@ -74,6 +74,14 @@ function recordClick(event) {
     }
   }
   if (clickCounter >= 15) {
+    var imagesBeGone = document.getElementById("images-holder");  // element to remove images in while loop
+    while (imagesBeGone.firstChild) {
+      imagesBeGone.removeChild(imagesBeGone.firstChild);
+    }
+    var headingReplace = document.getElementById("comm");
+    headingReplace.innerHTML = "Thank You!";
+    var clickDisplay = document.getElementById("click-counter");
+    clickDisplay.innerHTML = "This is a summary of your picks";
     chart.render();
   }
 };
