@@ -59,18 +59,13 @@ function randomImageSelector() {
 // Function records image that is clicked on by user and updates vote count for image object
 function recordClick(event) {
   var clickedImage = event.target;
-  console.log(clickedImage);
   var clickedImageSource = clickedImage.src;
-  console.log("Clicked SRC: "+clickedImageSource);
   clickCounter++;
-  console.log(clickCounter);
   for (var index = 0; index < possibleImages.length; index++) {
-    console.log("  Compare to: "+possibleImages[index].imageSource);
+    // console.log("  Compare to: "+possibleImages[index].imageSource);
     if (clickedImageSource.indexOf(possibleImages[index].imageSource) >= 0) {
       possibleImages[index].forVotes++;
       possibleImages[index].y++;
-      console.log("    Clicked Item: "+possibleImages[index].name);
-      console.log(possibleImages[index].forVotes);
     }
   }
   if (clickCounter >= 15) {

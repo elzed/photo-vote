@@ -9,14 +9,13 @@ var imageChart = possibleImages;
 //    { label: "grape",  y: 28  }
 // ];
 
-function intializeChart() { //was window.onload = function
-	var chartProperties = { //made chart global by moving 'var' out of function
+function intializeChart() {		//was window.onload = function
+	var chartProperties = {			//made chart global by moving 'var' out of function
 		title:{
 			text: "Chosen Images"
 		},
 		data: [
 		{
-			// Change type to "doughnut", "line", "splineArea", etc.
 			type: "column",
 			dataPoints: imageChart
 		}

@@ -1,7 +1,4 @@
 
-
-
-
 body {
    font-family: Helvetica, sans-serif;
    background-color: #e3e3e3;
@@ -16,13 +13,19 @@ div#images-holder {
   margin: 4em 10%;
 }
 
-
+/* Set up images and image borders with a transition */
 img {
   border: 5px solid darkgray;
   border-radius: 8px;
   width: 25%;
   margin: 0 2em;
   float: left;
+  transition: all .15s ease-in-out;
+}
+
+/* Change to a green image border when hovering over image */
+img:hover {
+  border: 5px solid green;
 }
 
 div#chart-container {
@@ -36,21 +39,13 @@ div#chart-container {
 
 /* css below for transitions */
 
-/*.image-div {
-  opacity: 1;
-  transition: opacity .25s;
-}
 
-.image-div:hover {
-   opacity: 0.5;
-}*/
-
-#images-holder:hover > .image-div {
-  opacity: 0.25;
-  transition: 1s;
+/*#images-holder:hover > .image-div {
+  transform: scale(1.0);
+  transition: all .2s ease-in-out;
 }
 
 #images-holder:hover > .image-div:hover {
-  opacity: 1.0;
-  transition: 1s;
-}
+  transform: scale(1.1);
+  transition: all .2s ease-in-out;
+}*/
