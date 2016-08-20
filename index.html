@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <link type="text/css" rel="stylesheet" href="css/style.css">
@@ -6,11 +6,11 @@
   <body>
     <h1>Pick a Picture</h1>
     <h2 id="comm">Click on an image to pick your favorite</h2>
-    <h3 id="click-counter"></h3>
-    <input id="continue-button" class="buttons" type="button" value="Continue">
-    <input id="results-button" class="buttons" type="button" value="All Results">
-    <input id="clear-results-button" class="buttons" type="button" value="Reset">
-      <div id="images-holder">
+    <h3 id="countClicks"></h3>
+    <input id="continueButton" class="buttons" type="button" value="Continue">
+    <input id="resultButton" class="buttons" type="button" value="Add All Results">
+    <!-- <input id="clear-resultButton" class="buttons" type="button" value="Reset"> -->
+      <div id="imagesholder">
         <div class="image-div">
           <img id="image1">
         </div>
@@ -20,19 +20,19 @@
         <div class="image-div">
           <img id="image3">
         </div>
-      </div><!-- /.id="images-holder" -->
+      </div><!-- /.id="imagesholder" -->
 
-      <div id="results-wrapper">
+      <div id="resultChartWrap">
         <section id="voting-results"></section>
       </div>
-      <div id="marketer-wrapper">
-        <section id="marketer-results"></section>
+      <div id="marketChartWrap">
+        <section id="marketer"></section>
       </div>
       <script type="text/javascript" src="js/pickimages.js"></script>
-      <script type="text/javascript" src="js/chart.js"></script>
-      <script type="text/javascript" src="js/marketer_chart.js"></script>
+      <script type="text/javascript" src="js/mainchart.js"></script>
+      <script type="text/javascript" src="js/marketerchart.js"></script>
       <script type="text/javascript" src="js/canvasjs.min.js"></script>
-      <script type="text/javascript" src="js/supportfunctions.js"></script>
+      <script type="text/javascript" src="js/transfunctions.js"></script>
       <script type="text/javascript" src="js/eventlisteners.js"></script>
   </body>
 </html>

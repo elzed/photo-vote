@@ -1,4 +1,3 @@
-
 body {
    font-family: Helvetica, sans-serif;
    background-color: #e3e3e3;
@@ -6,10 +5,39 @@ body {
 
 h1, h2, h3 {
   text-align: center;
+  color: green;
+}
+
+.buttons {
+  display: block;
+  margin: 15px auto;
+  padding: 15px 15px;
+  color: green;
+  border: 2px solid green;
+  border-radius: 5px;
+ }
+
+
+
+/***** Set up images and image borders with a transition *****/
+
+img {
+  border: 5px solid darkgray;
+  border-radius: 8px;
+  width: 250px;
+  margin: 0 2em;
+  transition: all .2s ease-in-out;
+}
+
+img:hover {
+  border: 5px solid green;
 }
 
 
-div#images-holder {
+
+/***** Image transition *****/
+
+#imagesholder {
   display: flex;
   justify-content: center;
   margin: 2em 0 0 0;
@@ -17,89 +45,44 @@ div#images-holder {
   opacity: 0;
 }
 
-/* Set up images and image borders with a transition */
-img {
-  border: 5px solid darkgray;
-  border-radius: 8px;
-  width: 250px;
-  margin: 0 2em;
-  transition: all .15s ease-in-out;
+#imagesholder.imageTrans {
+  height: 500px;
+  opacity: 1;
+  transition: all .2s;
 }
 
-/* Change to a green image border when hovering over image */
-img:hover {
-  border: 5px solid green;
-}
 
-.buttons {
+
+/***** Results chart transition *****/
+
+#resultChartWrap {
   display: block;
-  padding: 5px 5px;
-  margin: 15px auto;
-  border: 1px solid #606361;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #000;
- }
-
-#click-counter {
-  display: block;
-  width: 30%;
-  padding: 10px;
-  margin: 20px auto;
-  border: 1px solid #606361;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #000;
-}
-
-#text-for-user {
-  width: 60%;
-  margin: 0 auto;
-}
-
-.image-div {
-  margin: 10px;
-}
-
-.instructions {
-  line-height: 24px;
-  display: inline-block;
-  text-align: justify;
-  margin: 0 auto;
-  padding: 10px 20px;
-  border: 0px;
-  border-radius: 5px;
-  background-color: azure;
-}
-
-#results-wrapper {
-  display: block;
-  width: 85%;
+  width: 80%;
   height: 0px;
   margin: 5px auto;
   opacity: 0;
 }
 
-#marketer-wrapper {
+#resultChartWrap.chartTrans {
+  height: 410px;
+  opacity: 1;
+  transition: all .2s;
+}
+
+
+
+/***** Market chart transition *****/
+
+#marketChartWrap {
   display: block;
-  width: 85%;
+  width: 80%;
   height: 0px;
   margin: 5px auto;
   opacity: 0;
 }
 
-#images-holder.images-transition {
-  height: 450px;
+#marketChartWrap.chartTrans {
+  height: 500px;
   opacity: 1;
-  transition: all .75s;
-}
-
-#results-wrapper.chart-transition {
-  height: 450px;
-  opacity: 1;
-  transition: all .75s;
-}
-
-#marketer-wrapper.chart-transition {
-  height: 450px;
-  opacity: 1;
-  transition: all .75s;
+  transition: all .2s;
 }
