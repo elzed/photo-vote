@@ -1,15 +1,15 @@
 <DOCTYPE html>
 <html>
   <head>
-    <!-- code for the older class-10 assignment -->
     <link type="text/css" rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <h1>Pick a Picture</h1>
     <h2 id="comm">Click on an image to pick your favorite</h2>
     <h3 id="click-counter"></h3>
-    <input id="againbutton" class="button" type="button" value="Again?">
-    <input id="resultsbutton" class="button" type="button" value="All Results">
+    <input id="continue-button" class="buttons" type="button" value="Continue">
+    <input id="results-button" class="buttons" type="button" value="All Results">
+    <input id="clear-results-button" class="buttons" type="button" value="Reset">
       <div id="images-holder">
         <div class="image-div">
           <img id="image1">
@@ -21,14 +21,18 @@
           <img id="image3">
         </div>
       </div><!-- /.id="images-holder" -->
-      <div id="chart-container">
+
+      <div id="results-wrapper">
+        <section id="voting-results"></section>
       </div>
-      <div id="marketer-chart-container">
+      <div id="marketer-wrapper">
+        <section id="marketer-results"></section>
       </div>
+      <script type="text/javascript" src="js/pickimages.js"></script>
+      <script type="text/javascript" src="js/chart.js"></script>
+      <script type="text/javascript" src="js/marketer_chart.js"></script>
+      <script type="text/javascript" src="js/canvasjs.min.js"></script>
+      <script type="text/javascript" src="js/supportfunctions.js"></script>
+      <script type="text/javascript" src="js/eventlisteners.js"></script>
   </body>
-  <script type="text/javascript" src="js/pickimages.js"></script>
-  <script type="text/javascript" src="js/chart.js"></script>
-  <script type="text/javascript" src="js/canvasjs.min.js"></script>
-  <script type="text/javascript" src="js/supportfunctions.js"></script>
-  <script type="text/javascript" src="js/eventlisteners.js"></script>
 </html>

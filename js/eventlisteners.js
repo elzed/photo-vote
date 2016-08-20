@@ -1,21 +1,19 @@
+var imagePanel = document.getElementById("images-holder");
+
 // Event listener to call recordClick() on click event: function records image that is voted on by click
 imagePanel.addEventListener("click", recordClick, false);
 
 // Event listener to call randomImageSelector() on click event: function refreshes the selection of images
-imagePanel.addEventListener("click", randomImageSelector, false);
+imagePanel.addEventListener("click", randomImageSelector);
 
+// Event listener to call continueOn() on click event: function resets click counter to zero and changes visibility property of chart to "hidden"
+document.getElementById("continue-button").addEventListener("click", continueOn, false);
 
+// Event listener to call viewAll() on click event: function displays chart with all voting results
+document.getElementById("results-button").addEventListener("click", viewAll, false);
 
-// Calls randomImageSelector on window load event: function selects three images randomly to display
-window.addEventListener("load", randomImageSelector, false);
+// Event listener to call returnToVoting() on click event: function hides chart and returns to image voting
+document.getElementById("clear-results-button").addEventListener("click", returnToVoting, false);
 
-
-// Calls randomImageSelector from pickimages.js
-// document.getElementById("againbutton").addEventListener("click", randomImageSelector, false);
-
-
-// Calls restartPoll to clear chart and start poll again
-document.getElementById("againbutton").addEventListener("click", restartPoll, false);
-
-
-// document.getElementById("againbutton").addEventListener("click", chartRemove, false);
+// Event listener to load images on window load
+window.addEventListener("load", loadImages);

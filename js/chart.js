@@ -21,7 +21,7 @@ function intializeChart() {		//was window.onload = function
 		}
 		]
 	};
-   chart = new CanvasJS.Chart("chart-container", chartProperties); //added line
+   chart = new CanvasJS.Chart("voting-results", chartProperties); //added line
 	// chart.render();
 }
 

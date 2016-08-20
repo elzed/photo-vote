@@ -41,6 +41,7 @@ function loadImages() {
       }
     }
   randomImageSelector();
+  imagesHolderTrans();
 };
 
 // Function randomly selects three images to display
@@ -65,17 +66,19 @@ function recordClick(event) {
   var clickedImage = event.target;
   var clickedImageSource = clickedImage.src;
   clickCounter++;
-  // imagesHolderReverse();  // MIGHT GET DELETED !!!!!!!!!!!!
+  imagesHolderReverse();
   for (var index = 0; index < possibleImages.length; index++) {
     if (clickedImageSource.indexOf(possibleImages[index].imageSource) >= 0) {
       possibleImages[index].forVotes++;
       possibleImages[index].y++;
-    } if (clickCounter < 15 ) {
-      setTimeout(imagesHolderTrans, 250);
+    } else if (clickCounter < 15 ) {
+        setTimeout(imagesHolderTrans, 250);
     }
      else if (clickCounter == 15) {
       imagesHolderReverse();
       chart.render();
+      continueButtonQuery.style.display = "block";
+      sessionChartTrans();
       localStorage.setItem("images", JSON.stringify(possibleImages));
     }
   }
@@ -85,73 +88,79 @@ var marketerResults = [];
 
 var marketerTotals = [];
 
-
-
-
 // Function to view chart with all voting results
-function viewAll() {
-  imagesHolderReverse();
-  var marketerResults = JSON.parse(localStorage.getItem("images"));
-  for (var index = 0; index < marketerResults.length; index++) {
-    var image = marketerResults[index];
-    marketerTracker = new imageObjectConstructor(image.name, image.imageSource);
-    marketerTracker.forVotes = image.forVotes;
-    marketerTracker.y = image.forVotes;
-    marketerTracker.x = index;
-    marketerTotals.push(marketerTracker);
-    }
-    sessionChartReverse();
-    chart2.render();
-    resultsButtonQuery.style.display = "none";
-    clearResultsQuery.style.display = "block";
-    marketerChartTrans();
+// function viewAll() {
+//   imagesHolderReverse();
+//   var marketerResults = JSON.parse(localStorage.getItem("images"));
+//   for (var index = 0; index < marketerResults.length; index++) {
+//     var image = marketerResults[index];
+//     marketerTracker = new imageObjectConstructor(image.name, image.imageSource);
+//     marketerTracker.forVotes = image.forVotes;
+//     marketerTracker.y = image.forVotes;
+//     marketerTracker.x = index;
+//     marketerTotals.push(marketerTracker);
+//     }
+//     sessionChartReverse();
+//     chart2.render();
+//     resultsButtonQuery.style.display = "none";
+//     clearResultsQuery.style.display = "block";
+//     marketerChartTrans();
+// };
+
+var continueButtonQuery = document.querySelector("input#continue-button");
+continueButtonQuery.style.display = "none";
+
+var resultsButtonQuery = document.querySelector("input#results-button");
+resultsButtonQuery.style.display = "none";
+
+var clearResultsQuery = document.querySelector("input#clear-results-button")
+clearResultsQuery.style.display = "none";
+
+// Function to hide marketer chart and return to voting
+function returnToVoting() {
+  marketerChartReverse();
+  sessionChartReverse();
+  imagesHolderTrans();
+  clearResultsQuery.style.display = "none";
 };
 
+// Function to hide session results chart and continue voting
+function continueOn(event) {
+  clickCounter = 0;
+  imagesHolderReverse();
+  randomImageSelector();
+  imagesHolderTrans();
+  resultsButtonQuery.style.display = "block";
+  continueButtonQuery.style.display = "none";
+  sessionChartReverse();
+};
 
+//Function to set class attribute("chart-transition") of div("results-wrapper")
+function sessionChartTrans() {
+  document.getElementById("results-wrapper").setAttribute("class", "chart-transition");
+};
 
+//Function to remove class attribute of div("results-wrapper")
+function sessionChartReverse() {
+  document.getElementById("results-wrapper").setAttribute("class", "");
+};
 
-
-
-
-// Function randomly selects three images to display
-function randomImageSelector() {
-  pickedImages = []; // empty this so that we can track 3 new images
-  console.log("click");
-  for (var imageId = 1; imageId <= 3; imageId++) {
-    do {
-      var index = Math.floor(Math.random() * 14);
-    } while (pickedImages.indexOf(index) >= 0);   // keep trying until it's unique
-    var source = possibleImages[index].imageSource; // get the source for the image
-    document.getElementById("image"+imageId).src = source;
-    pickedImages.push(index);
-  }
-  var clickDisplay = document.getElementById("click-counter");
-  clickDisplay.innerHTML = "";
-  var clickDisplayNode = document.createTextNode("You have made " + clickCounter + " picks of 15.");
-  clickDisplay.appendChild(clickDisplayNode);
+//Function to set class attribute("chart-transition") of div("marketer-wrapper")
+function marketerChartTrans() {
+  document.getElementById("marketer-wrapper").setAttribute("class", "chart-transition");
 }
 
-// Function records image that is clicked on by user and updates vote count for image object
-function recordClick(event) {
-  var clickedImage = event.target;
-  var clickedImageSource = clickedImage.src;
-  clickCounter++;
-  for (var index = 0; index < possibleImages.length; index++) {
-    // console.log("  Compare to: "+possibleImages[index].imageSource);
-    if (clickedImageSource.indexOf(possibleImages[index].imageSource) >= 0) {
-      possibleImages[index].forVotes++;
-      possibleImages[index].y++;
-    }
-  }
-  if (clickCounter >= 15) {
-    var imagesBeGone = document.getElementById("images-holder");  // element to remove images in while loop
-    while (imagesBeGone.firstChild) {
-      imagesBeGone.removeChild(imagesBeGone.firstChild);
-    }
-    var headingReplace = document.getElementById("comm");
-    headingReplace.innerHTML = "Thank You!";
-    var clickDisplay = document.getElementById("click-counter");
-    clickDisplay.innerHTML = "This is a summary of your picks";
-    chart.render();
-  }
+//Function to remove class attribute of div("marketer-wrapper")
+function marketerChartReverse() {
+  document.getElementById("marketer-wrapper").setAttribute("class", "");
+};
+
+//Function to set class attribute("images-transition") of div("images-holder")
+function imagesHolderTrans() {
+  document.getElementById("images-holder").setAttribute("class", "images-transition");
+};
+
+//Function to remove class attribute of div("images-holder")
+function imagesHolderReverse() {
+  document.getElementById("images-holder").setAttribute("class", "");
 };
