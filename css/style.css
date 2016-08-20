@@ -10,16 +10,19 @@ h1, h2, h3 {
 
 
 div#images-holder {
-  margin: 4em 10%;
+  display: flex;
+  justify-content: center;
+  margin: 2em 0 0 0;
+  height: 0px;
+  opacity: 0;
 }
 
 /* Set up images and image borders with a transition */
 img {
   border: 5px solid darkgray;
   border-radius: 8px;
-  width: 25%;
+  width: 250px;
   margin: 0 2em;
-  float: left;
   transition: all .15s ease-in-out;
 }
 
@@ -28,24 +31,75 @@ img:hover {
   border: 5px solid green;
 }
 
-div#chart-container {
-  clear: left;
+.buttons {
   display: block;
-  margin: 50px auto;
-  width: 80%;
+  padding: 5px 5px;
+  margin: 15px auto;
+  border: 1px solid #606361;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #000;
+ }
+
+#click-counter {
+  display: block;
+  width: 30%;
+  padding: 10px;
+  margin: 20px auto;
+  border: 1px solid #606361;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #000;
 }
 
-
-
-/* css below for transitions */
-
-
-/*#images-holder:hover > .image-div {
-  transform: scale(1.0);
-  transition: all .2s ease-in-out;
+#text-for-user {
+  width: 60%;
+  margin: 0 auto;
 }
 
-#images-holder:hover > .image-div:hover {
-  transform: scale(1.1);
-  transition: all .2s ease-in-out;
-}*/
+.image-div {
+  margin: 10px;
+}
+
+.instructions {
+  line-height: 24px;
+  display: inline-block;
+  text-align: justify;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border: 0px;
+  border-radius: 5px;
+  background-color: azure;
+}
+
+#results-wrapper {
+  display: block;
+  width: 85%;
+  height: 0px;
+  margin: 5px auto;
+  opacity: 0;
+}
+
+#marketer-wrapper {
+  display: block;
+  width: 85%;
+  height: 0px;
+  margin: 5px auto;
+  opacity: 0;
+}
+
+#images-holder.images-transition {
+  height: 450px;
+  opacity: 1;
+  transition: all .75s;
+}
+
+#results-wrapper.chart-transition {
+  height: 450px;
+  opacity: 1;
+  transition: all .75s;
+}
+
+#marketer-wrapper.chart-transition {
+  height: 450px;
+  opacity: 1;
+  transition: all .75s;
+}
