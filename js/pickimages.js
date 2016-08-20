@@ -25,8 +25,7 @@ var possibleImages = [
   new imageObjectConstructor("Wine", "img/wine_glass.jpg"),
 ];
 
-// Event listener to call randomImageSelector() on window load event: function selects three images randomly to display
-window.addEventListener("load", randomImageSelector, false);
+
 
 var imagePanel = document.getElementById("images-holder");
 
@@ -42,6 +41,7 @@ var clickCounter = 0;
 // Function randomly selects three images to display
 function randomImageSelector() {
   chosenImages = []; // empty this so that we can track 3 new images
+  console.log("click");
   for (var imageId = 1; imageId <= 3; imageId++) {
     do {
       var index = Math.floor(Math.random() * 14);
